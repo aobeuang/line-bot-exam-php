@@ -63,193 +63,497 @@ $baseurl = "https://" . $_SERVER['SERVER_NAME'];
 	    else if(strpos($message, 'ลาก่อน') !== false){
 	        $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
 	        $arrayPostData['messages'][0] = array (
-								  'type' => 'flex',
-								  'altText' => 'Flex Message',
-								  'contents' => 
-								  array (
-								    'type' => 'bubble',
-								    'hero' => 
-								    array (
-								      'type' => 'image',
-								      'url' => 'https://scdn.line-apps.com/n/channel_devcenter/img/fx/01_1_cafe.png',
-								      'size' => 'full',
-								      'aspectRatio' => '20:13',
-								      'aspectMode' => 'cover',
-								      'action' => 
-								      array (
-								        'type' => 'uri',
-								        'label' => 'Line',
-								        'uri' => 'https://linecorp.com/',
-								      ),
-								    ),
-								    'body' => 
-								    array (
-								      'type' => 'box',
-								      'layout' => 'vertical',
-								      'contents' => 
-								      array (
-								        0 => 
-								        array (
-								          'type' => 'text',
-								          'text' => 'Brown Cafe',
-								          'size' => 'xl',
-								          'weight' => 'bold',
-								        ),
-								        1 => 
-								        array (
-								          'type' => 'box',
-								          'layout' => 'baseline',
-								          'margin' => 'md',
-								          'contents' => 
-								          array (
-								            0 => 
-								            array (
-								              'type' => 'icon',
-								              'url' => 'https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gold_star_28.png',
-								              'size' => 'sm',
-								            ),
-								            1 => 
-								            array (
-								              'type' => 'icon',
-								              'url' => 'https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gold_star_28.png',
-								              'size' => 'sm',
-								            ),
-								            2 => 
-								            array (
-								              'type' => 'icon',
-								              'url' => 'https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gold_star_28.png',
-								              'size' => 'sm',
-								            ),
-								            3 => 
-								            array (
-								              'type' => 'icon',
-								              'url' => 'https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gold_star_28.png',
-								              'size' => 'sm',
-								            ),
-								            4 => 
-								            array (
-								              'type' => 'icon',
-								              'url' => 'https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gray_star_28.png',
-								              'size' => 'sm',
-								            ),
-								            5 => 
-								            array (
-								              'type' => 'text',
-								              'text' => '4.0',
-								              'flex' => 0,
-								              'margin' => 'md',
-								              'size' => 'sm',
-								              'color' => '#999999',
-								            ),
-								          ),
-								        ),
-								        2 => 
-								        array (
-								          'type' => 'box',
-								          'layout' => 'vertical',
-								          'spacing' => 'sm',
-								          'margin' => 'lg',
-								          'contents' => 
-								          array (
-								            0 => 
-								            array (
-								              'type' => 'box',
-								              'layout' => 'baseline',
-								              'spacing' => 'sm',
-								              'contents' => 
-								              array (
-								                0 => 
-								                array (
-								                  'type' => 'text',
-								                  'text' => 'Place',
-								                  'flex' => 1,
-								                  'size' => 'sm',
-								                  'color' => '#AAAAAA',
-								                ),
-								                1 => 
-								                array (
-								                  'type' => 'text',
-								                  'text' => 'Miraina Tower, 4-1-6 Shinjuku, Tokyo',
-								                  'flex' => 5,
-								                  'size' => 'sm',
-								                  'color' => '#666666',
-								                  'wrap' => true,
-								                ),
-								              ),
-								            ),
-								            1 => 
-								            array (
-								              'type' => 'box',
-								              'layout' => 'baseline',
-								              'spacing' => 'sm',
-								              'contents' => 
-								              array (
-								                0 => 
-								                array (
-								                  'type' => 'text',
-								                  'text' => 'Time',
-								                  'flex' => 1,
-								                  'size' => 'sm',
-								                  'color' => '#AAAAAA',
-								                ),
-								                1 => 
-								                array (
-								                  'type' => 'text',
-								                  'text' => '10:00 - 23:00',
-								                  'flex' => 5,
-								                  'size' => 'sm',
-								                  'color' => '#666666',
-								                  'wrap' => true,
-								                ),
-								              ),
-								            ),
-								          ),
-								        ),
-								      ),
-								    ),
-								    'footer' => 
-								    array (
-								      'type' => 'box',
-								      'layout' => 'vertical',
-								      'flex' => 0,
-								      'spacing' => 'sm',
-								      'contents' => 
-								      array (
-								        0 => 
-								        array (
-								          'type' => 'button',
-								          'action' => 
-								          array (
-								            'type' => 'postback',
-								            'label' => 'CALL',
-								            'text' => 'Caaa',
-								            'data' => '่่่fdfg',
-								          ),
-								          'flex' => 1,
-								          'height' => 'sm',
-								          'style' => 'link',
-								        ),
-								        1 => 
-								        array (
-								          'type' => 'button',
-								          'action' => 
-								          array (
-								            'type' => 'uri',
-								            'label' => 'WEBSITE',
-								            'uri' => 'https://linecorp.com',
-								          ),
-								          'height' => 'sm',
-								          'style' => 'link',
-								        ),
-								        2 => 
-								        array (
-								          'type' => 'spacer',
-								          'size' => 'sm',
-								        ),
-								      ),
-								    ),
-								  ),
-								);
+  'type' => 'flex',
+  'altText' => 'Flex Message',
+  'contents' => 
+  array (
+    'type' => 'carousel',
+    'contents' => 
+    array (
+      0 => 
+      array (
+        'type' => 'bubble',
+        'hero' => 
+        array (
+          'type' => 'image',
+          'url' => 'https://scdn.line-apps.com/n/channel_devcenter/img/fx/01_6_carousel.png',
+          'size' => 'full',
+          'aspectRatio' => '20:13',
+          'aspectMode' => 'cover',
+        ),
+        'body' => 
+        array (
+          'type' => 'box',
+          'layout' => 'vertical',
+          'spacing' => 'sm',
+          'contents' => 
+          array (
+            0 => 
+            array (
+              'type' => 'text',
+              'text' => 'Metal Desk Lamp',
+              'size' => 'xl',
+              'weight' => 'bold',
+              'wrap' => true,
+            ),
+            1 => 
+            array (
+              'type' => 'box',
+              'layout' => 'baseline',
+              'flex' => 1,
+              'contents' => 
+              array (
+                0 => 
+                array (
+                  'type' => 'text',
+                  'text' => '$11',
+                  'flex' => 0,
+                  'size' => 'xl',
+                  'weight' => 'bold',
+                  'wrap' => true,
+                ),
+                1 => 
+                array (
+                  'type' => 'text',
+                  'text' => '.99',
+                  'flex' => 0,
+                  'size' => 'sm',
+                  'weight' => 'bold',
+                  'wrap' => true,
+                ),
+              ),
+            ),
+            2 => 
+            array (
+              'type' => 'text',
+              'text' => 'Temporarily out of stock',
+              'flex' => 0,
+              'margin' => 'md',
+              'size' => 'xxs',
+              'color' => '#FF5551',
+              'wrap' => true,
+            ),
+          ),
+        ),
+        'footer' => 
+        array (
+          'type' => 'box',
+          'layout' => 'vertical',
+          'spacing' => 'sm',
+          'contents' => 
+          array (
+            0 => 
+            array (
+              'type' => 'button',
+              'action' => 
+              array (
+                'type' => 'postback',
+                'label' => 'Add to Cart',
+                'text' => 'dsfdsf',
+                'data' => 'f',
+              ),
+              'flex' => 0,
+              'color' => '#AAAAAA',
+              'style' => 'primary',
+            ),
+            1 => 
+            array (
+              'type' => 'button',
+              'action' => 
+              array (
+                'type' => 'uri',
+                'label' => 'Add to wish list',
+                'uri' => 'https://linecorp.com',
+              ),
+            ),
+          ),
+        ),
+      ),
+      1 => 
+      array (
+        'type' => 'bubble',
+        'hero' => 
+        array (
+          'type' => 'image',
+          'url' => 'https://scdn.line-apps.com/n/channel_devcenter/img/fx/01_1_cafe.png',
+          'size' => 'full',
+          'aspectRatio' => '20:13',
+          'aspectMode' => 'cover',
+          'action' => 
+          array (
+            'type' => 'uri',
+            'label' => 'Line',
+            'uri' => 'https://linecorp.com/',
+          ),
+        ),
+        'body' => 
+        array (
+          'type' => 'box',
+          'layout' => 'vertical',
+          'contents' => 
+          array (
+            0 => 
+            array (
+              'type' => 'text',
+              'text' => 'Brown Cafe',
+              'size' => 'xl',
+              'weight' => 'bold',
+            ),
+            1 => 
+            array (
+              'type' => 'box',
+              'layout' => 'baseline',
+              'margin' => 'md',
+              'contents' => 
+              array (
+                0 => 
+                array (
+                  'type' => 'icon',
+                  'url' => 'https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gold_star_28.png',
+                  'size' => 'sm',
+                ),
+                1 => 
+                array (
+                  'type' => 'icon',
+                  'url' => 'https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gold_star_28.png',
+                  'size' => 'sm',
+                ),
+                2 => 
+                array (
+                  'type' => 'icon',
+                  'url' => 'https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gold_star_28.png',
+                  'size' => 'sm',
+                ),
+                3 => 
+                array (
+                  'type' => 'icon',
+                  'url' => 'https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gold_star_28.png',
+                  'size' => 'sm',
+                ),
+                4 => 
+                array (
+                  'type' => 'icon',
+                  'url' => 'https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gray_star_28.png',
+                  'size' => 'sm',
+                ),
+                5 => 
+                array (
+                  'type' => 'text',
+                  'text' => '4.0',
+                  'flex' => 0,
+                  'margin' => 'md',
+                  'size' => 'sm',
+                  'color' => '#999999',
+                ),
+              ),
+            ),
+            2 => 
+            array (
+              'type' => 'box',
+              'layout' => 'vertical',
+              'spacing' => 'sm',
+              'margin' => 'lg',
+              'contents' => 
+              array (
+                0 => 
+                array (
+                  'type' => 'box',
+                  'layout' => 'baseline',
+                  'spacing' => 'sm',
+                  'contents' => 
+                  array (
+                    0 => 
+                    array (
+                      'type' => 'text',
+                      'text' => 'Place',
+                      'flex' => 1,
+                      'size' => 'sm',
+                      'color' => '#AAAAAA',
+                    ),
+                    1 => 
+                    array (
+                      'type' => 'text',
+                      'text' => 'Miraina Tower, 4-1-6 Shinjuku, Tokyo',
+                      'flex' => 5,
+                      'size' => 'sm',
+                      'color' => '#666666',
+                      'wrap' => true,
+                    ),
+                  ),
+                ),
+                1 => 
+                array (
+                  'type' => 'box',
+                  'layout' => 'baseline',
+                  'spacing' => 'sm',
+                  'contents' => 
+                  array (
+                    0 => 
+                    array (
+                      'type' => 'text',
+                      'text' => 'Time',
+                      'flex' => 1,
+                      'size' => 'sm',
+                      'color' => '#AAAAAA',
+                    ),
+                    1 => 
+                    array (
+                      'type' => 'text',
+                      'text' => '10:00 - 23:00',
+                      'flex' => 5,
+                      'size' => 'sm',
+                      'color' => '#666666',
+                      'wrap' => true,
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ),
+        ),
+        'footer' => 
+        array (
+          'type' => 'box',
+          'layout' => 'vertical',
+          'flex' => 0,
+          'spacing' => 'sm',
+          'contents' => 
+          array (
+            0 => 
+            array (
+              'type' => 'button',
+              'action' => 
+              array (
+                'type' => 'postback',
+                'label' => 'CALL',
+                'text' => 'Caaa',
+                'data' => '่่่fdfg',
+              ),
+              'flex' => 1,
+              'height' => 'sm',
+              'style' => 'link',
+            ),
+            1 => 
+            array (
+              'type' => 'button',
+              'action' => 
+              array (
+                'type' => 'uri',
+                'label' => 'WEBSITE',
+                'uri' => 'https://linecorp.com',
+              ),
+              'height' => 'sm',
+              'style' => 'link',
+            ),
+            2 => 
+            array (
+              'type' => 'spacer',
+              'size' => 'sm',
+            ),
+          ),
+        ),
+      ),
+      2 => 
+      array (
+        'type' => 'bubble',
+        'hero' => 
+        array (
+          'type' => 'image',
+          'url' => 'https://scdn.line-apps.com/n/channel_devcenter/img/fx/01_6_carousel.png',
+          'size' => 'full',
+          'aspectRatio' => '20:13',
+          'aspectMode' => 'cover',
+        ),
+        'body' => 
+        array (
+          'type' => 'box',
+          'layout' => 'vertical',
+          'spacing' => 'sm',
+          'contents' => 
+          array (
+            0 => 
+            array (
+              'type' => 'text',
+              'text' => 'Metal Desk Lamp',
+              'size' => 'xl',
+              'weight' => 'bold',
+              'wrap' => true,
+            ),
+            1 => 
+            array (
+              'type' => 'box',
+              'layout' => 'baseline',
+              'flex' => 1,
+              'contents' => 
+              array (
+                0 => 
+                array (
+                  'type' => 'text',
+                  'text' => '$11',
+                  'flex' => 0,
+                  'size' => 'xl',
+                  'weight' => 'bold',
+                  'wrap' => true,
+                ),
+                1 => 
+                array (
+                  'type' => 'text',
+                  'text' => '.99',
+                  'flex' => 0,
+                  'size' => 'sm',
+                  'weight' => 'bold',
+                  'wrap' => true,
+                ),
+              ),
+            ),
+            2 => 
+            array (
+              'type' => 'text',
+              'text' => 'Temporarily out of stock',
+              'flex' => 0,
+              'margin' => 'md',
+              'size' => 'xxs',
+              'color' => '#FF5551',
+              'wrap' => true,
+            ),
+          ),
+        ),
+        'footer' => 
+        array (
+          'type' => 'box',
+          'layout' => 'vertical',
+          'spacing' => 'sm',
+          'contents' => 
+          array (
+            0 => 
+            array (
+              'type' => 'button',
+              'action' => 
+              array (
+                'type' => 'postback',
+                'label' => 'Add to Cart',
+                'text' => 'dsfdsf',
+                'data' => 'f',
+              ),
+              'flex' => 0,
+              'color' => '#AAAAAA',
+              'style' => 'primary',
+            ),
+            1 => 
+            array (
+              'type' => 'button',
+              'action' => 
+              array (
+                'type' => 'uri',
+                'label' => 'Add to wish list',
+                'uri' => 'https://linecorp.com',
+              ),
+            ),
+          ),
+        ),
+      ),
+      3 => 
+      array (
+        'type' => 'bubble',
+        'hero' => 
+        array (
+          'type' => 'image',
+          'url' => 'https://scdn.line-apps.com/n/channel_devcenter/img/fx/01_6_carousel.png',
+          'size' => 'full',
+          'aspectRatio' => '20:13',
+          'aspectMode' => 'cover',
+        ),
+        'body' => 
+        array (
+          'type' => 'box',
+          'layout' => 'vertical',
+          'spacing' => 'sm',
+          'contents' => 
+          array (
+            0 => 
+            array (
+              'type' => 'text',
+              'text' => 'Metal Desk Lamp',
+              'size' => 'xl',
+              'weight' => 'bold',
+              'wrap' => true,
+            ),
+            1 => 
+            array (
+              'type' => 'box',
+              'layout' => 'baseline',
+              'flex' => 1,
+              'contents' => 
+              array (
+                0 => 
+                array (
+                  'type' => 'text',
+                  'text' => '$11',
+                  'flex' => 0,
+                  'size' => 'xl',
+                  'weight' => 'bold',
+                  'wrap' => true,
+                ),
+                1 => 
+                array (
+                  'type' => 'text',
+                  'text' => '.99',
+                  'flex' => 0,
+                  'size' => 'sm',
+                  'weight' => 'bold',
+                  'wrap' => true,
+                ),
+              ),
+            ),
+            2 => 
+            array (
+              'type' => 'text',
+              'text' => 'Temporarily out of stock',
+              'flex' => 0,
+              'margin' => 'md',
+              'size' => 'xxs',
+              'color' => '#FF5551',
+              'wrap' => true,
+            ),
+          ),
+        ),
+        'footer' => 
+        array (
+          'type' => 'box',
+          'layout' => 'vertical',
+          'spacing' => 'sm',
+          'contents' => 
+          array (
+            0 => 
+            array (
+              'type' => 'button',
+              'action' => 
+              array (
+                'type' => 'postback',
+                'label' => 'Add to Cart',
+                'text' => 'dsfdsf',
+                'data' => 'f',
+              ),
+              'flex' => 0,
+              'color' => '#AAAAAA',
+              'style' => 'primary',
+            ),
+            1 => 
+            array (
+              'type' => 'button',
+              'action' => 
+              array (
+                'type' => 'uri',
+                'label' => 'Add to wish list',
+                'uri' => 'https://linecorp.com',
+              ),
+            ),
+          ),
+        ),
+      ),
+    ),
+  ),
+);
 			replyMsg($arrayHeader,$arrayPostData);
 	    }
 

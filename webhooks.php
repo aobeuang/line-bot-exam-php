@@ -3,6 +3,7 @@
 require "vendor/autoload.php";
 require_once('vendor/linecorp/line-bot-sdk/line-bot-sdk-tiny/LINEBotTiny.php');
 
+$baseurl = "https://" . $_SERVER['SERVER_NAME'];
 
     $accessToken = "xBbo2kYd5sOVIQ1f082vd75ZKZtHdXcZ7OnRyb/Q1+HGhgZhKWiWFZwM8wSZwCQhNLwhfA1tq+65ifktQKg4D3W94GA1oKhS8vxAgKK3jROA7ec+iu4IV0xcJZTUiZh9l0ch6Zx4CTwKSzfKDTfOnwdB04t89/1O/w1cDnyilFU=";//copy Channel access token ตอนที่ตั้งค่ามาใส่
     
@@ -37,7 +38,7 @@ require_once('vendor/linecorp/line-bot-sdk/line-bot-sdk-tiny/LINEBotTiny.php');
 	    }
 	    #ตัวอย่าง Message Type "Image"
 	    else if(strpos($message, 'รูปน้องแมว') !== false){
-	        $image_url = "https://cataas.com/c?wi=200";
+	        $image_url = $baseurl.'/img/cats/'.rand(1,11).'.jpg';
 	        $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
 	        $arrayPostData['messages'][0]['type'] = "image";
 	        $arrayPostData['messages'][0]['originalContentUrl'] = $image_url;
@@ -87,6 +88,6 @@ function replyMsg($arrayHeader,$arrayPostData){
         curl_close ($ch);
     }
 
-    echo "https://" . $_SERVER['SERVER_NAME'] ;
+    //echo "https://" . $_SERVER['SERVER_NAME'] ;
    exit;
 ?>

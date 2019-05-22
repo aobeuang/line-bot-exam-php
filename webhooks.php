@@ -60,7 +60,7 @@ $baseurl = "https://" . $_SERVER['SERVER_NAME'];
 	        replyMsg($arrayHeader,$arrayPostData);
 	    }
 	    #ตัวอย่าง Message Type "Text + Sticker ใน 1 ครั้ง"
-	    else if($message == "ลาก่อน"){
+	    else if(strpos($message, 'ลาก่อน') !== false){
 	        $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
 	        $arrayPostData['messages'][0] = array (
 								  'type' => 'flex',

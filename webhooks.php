@@ -98,7 +98,7 @@ $baseurl = "https://" . $_SERVER['SERVER_NAME'];
 
 	$arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
 	        $arrayPostData['messages'][0]['type'] = "text";
-	        $arrayPostData['messages'][0]['text'] = $arrayJson['events'][0];
+	        $arrayPostData['messages'][0]['text'] = $arrayJson['events'][0]['postback']['data'];
 	        replyMsg($arrayHeader,$arrayPostData);
 
 function replyMsg($arrayHeader,$arrayPostData){

@@ -35,11 +35,11 @@ $baseurl = "https://" . $_SERVER['SERVER_NAME'];
 	    else if(strpos($message, 'ฝันดี')){
 	    // else if($message == "ฝันดี"){
 	        $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
-	        $arrayPostData['messages'][0]['type'] = "sticker";
-	        $arrayPostData['messages'][0]['packageId'] = "2";
-	        $arrayPostData['messages'][0]['stickerId'] = "46";
-	        $arrayPostData['messages'][1]['type'] = "text";
-	        $arrayPostData['messages'][1]['text'] = $_POST['test'];
+	        $arrayPostData['messages'][0]['type'] = "text";
+	        $arrayPostData['messages'][0]['text'] = $_POST['test'];
+	        $arrayPostData['messages'][1]['type'] = "sticker";
+	        $arrayPostData['messages'][1]['packageId'] = "2";
+	        $arrayPostData['messages'][1]['stickerId'] = "46";	        
 	        replyMsg($arrayHeader,$arrayPostData);
 	    }
 	    #ตัวอย่าง Message Type "Image"
@@ -77,7 +77,7 @@ $baseurl = "https://" . $_SERVER['SERVER_NAME'];
 											        'type' => 'postback',
 											        'label' => 'sss',
 											        'text' => 'นุ้งบอทฝันดี',
-											        'data' => 'test=นุ้งบอทฝันดี',
+											        'data' => 'test=5555555',
 											      ),
 											    ),
 											    'title' => 'Title',

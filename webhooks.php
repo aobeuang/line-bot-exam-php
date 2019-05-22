@@ -65,25 +65,25 @@ $baseurl = "https://" . $_SERVER['SERVER_NAME'];
 	    else if(strpos($message, 'ลาก่อน') !== false){
 	        $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
 	        $arrayPostData['messages'][0] = array (
-  'type' => 'template',
-  'altText' => 'this is a buttons template',
-  'template' => 
-  array (
-    'type' => 'buttons',
-    'actions' => 
-    array (
-      0 => 
-      array (
-        'type' => 'postback',
-        'label' => 'sss',
-        'text' => 'Action 1',
-        'data' => 'test=นุ้งบอทฝันดี',
-      ),
-    ),
-    'title' => 'Title',
-    'text' => 'Text',
-  ),
-);
+										  'type' => 'template',
+										  'altText' => 'this is a buttons template',
+										  'template' => 
+										  array (
+										    'type' => 'buttons',
+										    'actions' => 
+										    array (
+										      0 => 
+										      array (
+										        'type' => 'postback',
+										        'label' => 'sss',
+										        'text' => 'Action 1',
+										        'data' => 'test=นุ้งบอทฝันดี',
+										      ),
+										    ),
+										    'title' => 'Title',
+										    'text' => 'Text',
+										  ),
+										);
 			replyMsg($arrayHeader,$arrayPostData);
 	    }
 
@@ -95,7 +95,11 @@ $baseurl = "https://" . $_SERVER['SERVER_NAME'];
 	    }
 
 	}
+
 	$events = $arrayJson;
+	$is_postback = NULL;
+	$dataPostback = NULL;
+	$paramPostback = NULL;
 	if(isset($events['events'][0]) && array_key_exists('postback',$events['events'][0])){
         $is_postback = true;
         $dataPostback = NULL;

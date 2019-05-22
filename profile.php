@@ -18,10 +18,10 @@ curl_close($ch);
 
 $ss = json_decode($result);
 
-echo print_r($ss);
-// echo $ss['userId'];
-// echo $ss['displayName'];
-// echo $ss['pictureUrl'];
+
+echo $ss->userId;
+echo $ss->displayName;
+echo $ss->pictureUrl;
 
 // function gUserdetail($userid)
 // {

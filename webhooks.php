@@ -4,6 +4,7 @@ require "vendor/autoload.php";
 require_once('vendor/linecorp/line-bot-sdk/line-bot-sdk-tiny/LINEBotTiny.php');
 
 include_once 'fc/bot.php';
+include_once 'profile.php';
 
 
 
@@ -60,7 +61,7 @@ $baseurl = "https://" . $_SERVER['SERVER_NAME'];
 	        $arrayPostData['messages'][0]['latitude'] = "13.7465354";
 	        $arrayPostData['messages'][0]['longitude'] = "100.532752";
 	        replyMsg($arrayHeader,$arrayPostData);
-	    }
+	    }	    
 	    #ตัวอย่าง Message Type "Text + Sticker ใน 1 ครั้ง"
 	    else if(strpos($message, 'ลาก่อน') !== false){
 	        $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
@@ -95,11 +96,92 @@ $baseurl = "https://" . $_SERVER['SERVER_NAME'];
 	    }
 
 	}
+	#ตัวอย่าง Message Type "Location"
+    if(strpos($message, 'เทส') !== false){
+        $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
+        $arrayPostData['messages'][0]['type'] = "text";
+        $arrayPostData['messages'][0] = gProfile($arrayJson['events'][0]['source']['userId']);
+        replyMsg($arrayHeader,$arrayPostData);
+    }
+
+
 
 	$arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
 	        $arrayPostData['messages'][0]['type'] = "text";
 	        $arrayPostData['messages'][0]['text'] = $arrayJson['events'][0]['postback']['data'];
 	        replyMsg($arrayHeader,$arrayPostData);
+
+function gProfile($userid)
+{
+	$userss = json_decode(gUserdetail($userid));
+		$userdetail = array (
+						  'type' => 'flex',
+						  'altText' => 'Flex Message',
+						  'contents' => 
+						  array (
+						    'type' => 'bubble',
+						    'hero' => 
+						    array (
+						      'type' => 'image',
+						      'url' => $userss['pictureUrl'],
+						      'size' => 'full',
+						      'aspectRatio' => '20:13',
+						      'aspectMode' => 'cover',
+						      'action' => 
+						      array (
+						        'type' => 'uri',
+						        'label' => 'Line',
+						        'uri' => 'https://linecorp.com/',
+						      ),
+						    ),
+						    'footer' => 
+						    array (
+						      'type' => 'box',
+						      'layout' => 'vertical',
+						      'flex' => 0,
+						      'spacing' => 'sm',
+						      'contents' => 
+						      array (
+						        0 => 
+						        array (
+						          'type' => 'spacer',
+						          'size' => 'sm',
+						        ),
+						        1 => 
+						        array (
+						          'type' => 'text',
+						          'text' => 'Displayname',
+						          'size' => 'xl',
+						          'align' => 'center',
+						          'gravity' => 'center',
+						          'color' => '#050505',
+						        ),
+						        2 => 
+						        array (
+						          'type' => 'text',
+						          'text' => 'Status',
+						          'align' => 'center',
+						          'gravity' => 'center',
+						          'weight' => 'regular',
+						        ),
+						        3 => 
+						        array (
+						          'type' => 'text',
+						          'text' => '!! Welcome !!',
+						          'size' => 'xl',
+						          'align' => 'center',
+						          'gravity' => 'center',
+						          'weight' => 'bold',
+						          'color' => '#1200FF',
+						        ),
+						      ),
+						    ),
+						  ),
+						);
+
+		return $userdetail;
+}
+
 
 function replyMsg($arrayHeader,$arrayPostData){
         $strUrl = "https://api.line.me/v2/bot/message/reply";

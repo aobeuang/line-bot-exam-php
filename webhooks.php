@@ -116,11 +116,12 @@ $baseurl = "https://" . $_SERVER['SERVER_NAME'];
                 $paramPostback = $events['events'][0]['postback']['params']['datetime'];
             }                       
         }
-    }   
+    }
+   
     if(!is_null($is_postback)){
         $textReplyMessage = "ข้อความจาก Postback Event Data = ";
         if(is_array($dataPostback)){
-            $textReplyMessage.= json_encode($dataPostback);
+            $textReplyMessage.= $dataPostback;
         }
         if(!is_null($paramPostback)){
             $textReplyMessage.= " \r\nParams = ".$paramPostback;

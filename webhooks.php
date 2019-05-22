@@ -90,7 +90,7 @@ $baseurl = "https://" . $_SERVER['SERVER_NAME'];
 	    else{
 	        $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
 	        $arrayPostData['messages'][0]['type'] = "text";
-	        $arrayPostData['messages'][0]['text'] = "555");
+	        $arrayPostData['messages'][0]['text'] = "555";
 	        replyMsg($arrayHeader,$arrayPostData);
 	    }
 

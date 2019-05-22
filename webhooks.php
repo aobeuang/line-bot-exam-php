@@ -89,14 +89,16 @@ $baseurl = "https://" . $_SERVER['SERVER_NAME'];
 
 	    else{
 	        $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
-	        replyMsg($arrayHeader,print_r($arrayJson));
+	        $arrayPostData['messages'][0]['type'] = "text";
+	        $arrayPostData['messages'][0]['text'] = "555");
+	        replyMsg($arrayHeader,$arrayPostData);
 	    }
 
 	}
 
 	$arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
 	        $arrayPostData['messages'][0]['type'] = "text";
-	        $arrayPostData['messages'][0]['text'] = "เรียกชื่อมีไร กูเพื่อนโชคนะสัส";
+	        $arrayPostData['messages'][0]['text'] = print_r($arrayJson['events']);
 	        replyMsg($arrayHeader,$arrayPostData);
 
 function replyMsg($arrayHeader,$arrayPostData){

@@ -76,7 +76,7 @@ $baseurl = "https://" . $_SERVER['SERVER_NAME'];
 										      array (
 										        'type' => 'postback',
 										        'label' => 'sss',
-										        'text' => 'Action 1',
+										        'text' => 'นุ้งบอทฝันดี',
 										        'data' => 'test=นุ้งบอทฝันดี',
 										      ),
 										    ),

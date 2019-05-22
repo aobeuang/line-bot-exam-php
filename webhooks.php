@@ -38,6 +38,8 @@ $baseurl = "https://" . $_SERVER['SERVER_NAME'];
 	        $arrayPostData['messages'][0]['type'] = "sticker";
 	        $arrayPostData['messages'][0]['packageId'] = "2";
 	        $arrayPostData['messages'][0]['stickerId'] = "46";
+	        $arrayPostData['messages'][1]['type'] = "text";
+	        $arrayPostData['messages'][1]['text'] = $_POST['test'];
 	        replyMsg($arrayHeader,$arrayPostData);
 	    }
 	    #ตัวอย่าง Message Type "Image"

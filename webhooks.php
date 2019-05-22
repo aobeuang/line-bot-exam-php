@@ -37,7 +37,7 @@ require_once('vendor/linecorp/line-bot-sdk/line-bot-sdk-tiny/LINEBotTiny.php');
 	    }
 	    #ตัวอย่าง Message Type "Image"
 	    else if(strpos($message, 'รูปน้องแมว') !== false){
-	        $image_url = "https://cataas.com/cat/gif";
+	        $image_url = "https://cataas.com/c?wi=200";
 	        $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
 	        $arrayPostData['messages'][0]['type'] = "image";
 	        $arrayPostData['messages'][0]['originalContentUrl'] = $image_url;

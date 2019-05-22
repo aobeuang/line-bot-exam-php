@@ -249,7 +249,7 @@ $baseurl = "https://" . $_SERVER['SERVER_NAME'];
 								      ),
 								    ),
 								  ),
-								)
+								);
 			replyMsg($arrayHeader,$arrayPostData);
 	    }
 

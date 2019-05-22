@@ -24,7 +24,7 @@ require_once('vendor/linecorp/line-bot-sdk/line-bot-sdk-tiny/LINEBotTiny.php');
 	        replyMsg($arrayHeader,$arrayPostData);
 	    }
 	    #ตัวอย่าง Message Type "Sticker"
-	    else if(!strpos($message, 'ฝันดี')){
+	    else if(strpos($message, 'ฝันดี')){
 	    // else if($message == "ฝันดี"){
 	        $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
 	        $arrayPostData['messages'][0]['type'] = "sticker";

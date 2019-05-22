@@ -36,7 +36,7 @@ $baseurl = "https://" . $_SERVER['SERVER_NAME'];
 	    // else if($message == "ฝันดี"){
 	        $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
 	        $arrayPostData['messages'][0]['type'] = "text";
-	        $arrayPostData['messages'][0]['text'] = $_POST['test'];
+	        $arrayPostData['messages'][0]['text'] = $_GET['test'];
 	        $arrayPostData['messages'][1]['type'] = "sticker";
 	        $arrayPostData['messages'][1]['packageId'] = "2";
 	        $arrayPostData['messages'][1]['stickerId'] = "46";	        

@@ -18,7 +18,7 @@ require_once('vendor/linecorp/line-bot-sdk/line-bot-sdk-tiny/LINEBotTiny.php');
 #ตัวอย่าง Message Type "Text"
     // if(strpos($message, 'ไอ้บอท') !== false){
     //config bot
-    $botname = "ไอ้บอท";
+    $botname = "นุ้งบอท";
     if(strpos($message, $botname) !== false){
 	    if(strpos($message, 'สวัสดี') || strpos($message, 'ดีจ้า') || strpos($message, 'หวัดดี') !== false){
 	        $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
@@ -64,6 +64,14 @@ require_once('vendor/linecorp/line-bot-sdk/line-bot-sdk-tiny/LINEBotTiny.php');
 	        $arrayPostData['messages'][1]['stickerId'] = "131";
 	        replyMsg($arrayHeader,$arrayPostData);
 	    }
+
+	    else{
+	        $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
+	        $arrayPostData['messages'][0]['type'] = "text";
+	        $arrayPostData['messages'][0]['text'] = "เรียกชื่อมีไร กูเพื่อนโชคนะสัส";
+	        replyMsg($arrayHeader,$arrayPostData);
+	    }
+
 	}
 function replyMsg($arrayHeader,$arrayPostData){
         $strUrl = "https://api.line.me/v2/bot/message/reply";

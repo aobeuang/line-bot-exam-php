@@ -96,7 +96,7 @@ $baseurl = "https://" . $_SERVER['SERVER_NAME'];
 
 	}
 
-	$events = $arrayJson;
+	$events = json_decode($content, true);
 	$is_postback = NULL;
 	$dataPostback = NULL;
 	$paramPostback = NULL;

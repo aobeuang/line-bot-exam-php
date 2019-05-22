@@ -2,6 +2,9 @@
 
 require "vendor/autoload.php";
 require_once('vendor/linecorp/line-bot-sdk/line-bot-sdk-tiny/LINEBotTiny.php');
+require "fc/bot.php";
+
+echo first(1,"omg lol");
 
 $baseurl = "https://" . $_SERVER['SERVER_NAME'];
 

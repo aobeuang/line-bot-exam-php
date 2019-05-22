@@ -89,46 +89,15 @@ $baseurl = "https://" . $_SERVER['SERVER_NAME'];
 
 	    else{
 	        $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
-	        $arrayPostData['messages'][0]['type'] = "text";
-	        $arrayPostData['messages'][0]['text'] = "เรียกชื่อมีไร กูเพื่อนโชคนะสัส";
-	        replyMsg($arrayHeader,$arrayPostData);
+	        replyMsg($arrayHeader,print_r($arrayJson));
 	    }
 
 	}
 
-// 	$events = json_decode($content, true);
-// 	$is_postback = NULL;
-// 	$dataPostback = NULL;
-// 	$paramPostback = NULL;
-// 	if(isset($events['events'][0]) && array_key_exists('postback',$events['events'][0])){
-//         $is_postback = true;
-//         $dataPostback = NULL;
-//         parse_str($events['events'][0]['postback']['data'],$dataPostback);
-//         $paramPostback = NULL;
-//         if(array_key_exists('params',$events['events'][0]['postback'])){
-//             if(array_key_exists('date',$events['events'][0]['postback']['params'])){
-//                 $paramPostback = $events['events'][0]['postback']['params']['date'];
-//             }
-//             if(array_key_exists('time',$events['events'][0]['postback']['params'])){
-//                 $paramPostback = $events['events'][0]['postback']['params']['time'];
-//             }
-//             if(array_key_exists('datetime',$events['events'][0]['postback']['params'])){
-//                 $paramPostback = $events['events'][0]['postback']['params']['datetime'];
-//             }                       
-//         }
-//     }
-//    
-//     if(!is_null($is_postback)){
-//         $textReplyMessage = "ข้อความจาก Postback Event Data = ";
-//         if(is_array($dataPostback)){
-//             $textReplyMessage.= $dataPostback;
-//         }
-//         if(!is_null($paramPostback)){
-//             $textReplyMessage.= " \r\nParams = ".$paramPostback;
-//         }
-// //         $replyData = new TextMessageBuilder($textReplyMessage);
-// 		replyMsg($arrayHeader,$textReplyMessage);     
-//     }
+	$arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
+	        $arrayPostData['messages'][0]['type'] = "text";
+	        $arrayPostData['messages'][0]['text'] = "เรียกชื่อมีไร กูเพื่อนโชคนะสัส";
+	        replyMsg($arrayHeader,$arrayPostData);
 
 function replyMsg($arrayHeader,$arrayPostData){
         $strUrl = "https://api.line.me/v2/bot/message/reply";

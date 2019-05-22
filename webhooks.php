@@ -64,25 +64,27 @@ $baseurl = "https://" . $_SERVER['SERVER_NAME'];
 	    #ตัวอย่าง Message Type "Text + Sticker ใน 1 ครั้ง"
 	    else if(strpos($message, 'ลาก่อน') !== false){
 	        $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
-	        $arrayPostData['messages'][0] = json_decode('
-											{
-											  "type": "template",
-											  "altText": "this is a buttons template",
-											  "template": {
-											    "type": "buttons",
-											    "actions": [
-											      {
-											        "type": "postback",
-											        "label": "sss",
-											        "text": "Action 1",
-											        "data": "test=นุ้งบอทฝันดี"
-											      }
-											    ],
-											    "thumbnailImageUrl": "SPECIFY_YOUR_IMAGE_URL",
-											    "title": "Title",
-											    "text": "Text"
-											  }
-											}');
+	        $arrayPostData['messages'][0] = array (
+  'type' => 'template',
+  'altText' => 'this is a buttons template',
+  'template' => 
+  array (
+    'type' => 'buttons',
+    'actions' => 
+    array (
+      0 => 
+      array (
+        'type' => 'postback',
+        'label' => 'sss',
+        'text' => 'Action 1',
+        'data' => 'test=นุ้งบอทฝันดี',
+      ),
+    ),
+    'thumbnailImageUrl' => 'SPECIFY_YOUR_IMAGE_URL',
+    'title' => 'Title',
+    'text' => 'Text',
+  ),
+);
 			replyMsg($arrayHeader,$arrayPostData);
 	    }
 

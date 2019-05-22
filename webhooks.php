@@ -65,25 +65,25 @@ $baseurl = "https://" . $_SERVER['SERVER_NAME'];
 	    else if(strpos($message, 'ลาก่อน') !== false){
 	        $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
 	        $arrayPostData['messages'][0] = array (
-										  'type' => 'text',
-										  'text' => 'Hello Quick Reply!',
-										  'quickReply' => 
-										  array (
-										    'items' => 
-										    array (
-										      0 => 
-										      array (
-										        'type' => 'action',
-										        'action' => 
-										        array (
-										          'type' => 'message',
-										          'label' => 'Message',
-										          'text' => 'Hello World!',
-										        ),
-										      ),
-										    ),
-										  ),
-										);
+  'type' => 'template',
+  'altText' => 'this is a buttons template',
+  'template' => 
+  array (
+    'type' => 'buttons',
+    'actions' => 
+    array (
+      0 => 
+      array (
+        'type' => 'postback',
+        'label' => 'sss',
+        'text' => 'Action 1',
+        'data' => 'test=นุ้งบอทฝันดี',
+      ),
+    ),
+    'title' => 'Title',
+    'text' => 'Text',
+  ),
+);
 			replyMsg($arrayHeader,$arrayPostData);
 	    }
 
@@ -95,6 +95,35 @@ $baseurl = "https://" . $_SERVER['SERVER_NAME'];
 	    }
 
 	}
+	$events = $arrayJson;
+	if(isset($events['events'][0]) && array_key_exists('postback',$events['events'][0])){
+        $is_postback = true;
+        $dataPostback = NULL;
+        parse_str($events['events'][0]['postback']['data'],$dataPostback);
+        $paramPostback = NULL;
+        if(array_key_exists('params',$events['events'][0]['postback'])){
+            if(array_key_exists('date',$events['events'][0]['postback']['params'])){
+                $paramPostback = $events['events'][0]['postback']['params']['date'];
+            }
+            if(array_key_exists('time',$events['events'][0]['postback']['params'])){
+                $paramPostback = $events['events'][0]['postback']['params']['time'];
+            }
+            if(array_key_exists('datetime',$events['events'][0]['postback']['params'])){
+                $paramPostback = $events['events'][0]['postback']['params']['datetime'];
+            }                       
+        }
+    }   
+    if(!is_null($is_postback)){
+        $textReplyMessage = "ข้อความจาก Postback Event Data = ";
+        if(is_array($dataPostback)){
+            $textReplyMessage.= json_encode($dataPostback);
+        }
+        if(!is_null($paramPostback)){
+            $textReplyMessage.= " \r\nParams = ".$paramPostback;
+        }
+//         $replyData = new TextMessageBuilder($textReplyMessage);
+		replyMsg($arrayHeader,$textReplyMessage);     
+    }
 function replyMsg($arrayHeader,$arrayPostData){
         $strUrl = "https://api.line.me/v2/bot/message/reply";
         $ch = curl_init();

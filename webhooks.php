@@ -17,7 +17,7 @@ require_once('vendor/linecorp/line-bot-sdk/line-bot-sdk-tiny/LINEBotTiny.php');
     $message = $arrayJson['events'][0]['message']['text'];
 #ตัวอย่าง Message Type "Text"
     if(strpos($message, 'ไอ้บอท') !== false){
-	    if($message == "สวัสดี"){
+	    if($message == "สวัสดี" || $message == "หวัดดี" || $message == "ดีจ้า"){
 	        $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
 	        $arrayPostData['messages'][0]['type'] = "text";
 	        $arrayPostData['messages'][0]['text'] = "สวัสดีจ้าาา";

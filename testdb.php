@@ -4,15 +4,14 @@ $username = "bf8e64f9a7cf0e";
 $password = "98defd33";
 $dbname = "heroku_a1f88e2862f189b";
 
-// Check connection
+
+
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
 // Check connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 } 
-echo "Connected successfully";
-
 
 // sql to create table
 $sql = "CREATE TABLE MyGuests (

@@ -36,7 +36,7 @@ $baseurl = "https://" . $_SERVER['SERVER_NAME'];
 	    // else if($message == "ฝันดี"){
 	        $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
 	        $arrayPostData['messages'][0]['type'] = "text";
-	        $arrayPostData['messages'][0]['text'] = $_GET['test'];
+	        $arrayPostData['messages'][0]['text'] = 'ฝันดี';
 	        $arrayPostData['messages'][1]['type'] = "sticker";
 	        $arrayPostData['messages'][1]['packageId'] = "2";
 	        $arrayPostData['messages'][1]['stickerId'] = "46";	        
@@ -65,25 +65,25 @@ $baseurl = "https://" . $_SERVER['SERVER_NAME'];
 	    else if(strpos($message, 'ลาก่อน') !== false){
 	        $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
 	        $arrayPostData['messages'][0] = array (
-											  'type' => 'template',
-											  'altText' => 'this is a buttons template',
-											  'template' => 
-											  array (
-											    'type' => 'buttons',
-											    'actions' => 
-											    array (
-											      0 => 
-											      array (
-											        'type' => 'postback',
-											        'label' => 'sss',
-											        'text' => 'นุ้งบอทฝันดี',
-											        'data' => 'test=5555555',
-											      ),
-											    ),
-											    'title' => 'Title',
-											    'text' => 'Text',
-											  ),
-											);
+										  'type' => 'text',
+										  'text' => 'Hello Quick Reply!',
+										  'quickReply' => 
+										  array (
+										    'items' => 
+										    array (
+										      0 => 
+										      array (
+										        'type' => 'action',
+										        'action' => 
+										        array (
+										          'type' => 'message',
+										          'label' => 'Message',
+										          'text' => 'Hello World!',
+										        ),
+										      ),
+										    ),
+										  ),
+										);
 			replyMsg($arrayHeader,$arrayPostData);
 	    }
 

@@ -1,5 +1,6 @@
 <?php // callback.php
-function first($int, $string){ //function parameters, two variables.
-    return $string;  //returns the second argument passed into the function
-  }
+function func1($param1, $param2)
+    {
+        echo $param1 . ', ' . $param2;
+    }
 ?>

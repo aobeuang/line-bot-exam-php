@@ -38,8 +38,6 @@ $baseurl = "https://" . $_SERVER['SERVER_NAME'];
 	        $arrayPostData['messages'][0]['type'] = "sticker";
 	        $arrayPostData['messages'][0]['packageId'] = "2";
 	        $arrayPostData['messages'][0]['stickerId'] = "46";
-	        $arrayPostData['messages'][1]['type'] = "text";
-	        $arrayPostData['messages'][1]['text'] = $_POST['test'];
 	        replyMsg($arrayHeader,$arrayPostData);
 	    }
 	    #ตัวอย่าง Message Type "Image"
@@ -65,26 +63,25 @@ $baseurl = "https://" . $_SERVER['SERVER_NAME'];
 	    else if(strpos($message, 'ลาก่อน') !== false){
 	        $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
 	        $arrayPostData['messages'][0] = array (
-  'type' => 'template',
-  'altText' => 'this is a buttons template',
-  'template' => 
-  array (
-    'type' => 'buttons',
-    'actions' => 
-    array (
-      0 => 
-      array (
-        'type' => 'postback',
-        'label' => 'sss',
-        'text' => 'Action 1',
-        'data' => 'test=นุ้งบอทฝันดี',
-      ),
-    ),
-    'thumbnailImageUrl' => 'SPECIFY_YOUR_IMAGE_URL',
-    'title' => 'Title',
-    'text' => 'Text',
-  ),
-);
+											  'type' => 'template',
+											  'altText' => 'this is a buttons template',
+											  'template' => 
+											  array (
+											    'type' => 'buttons',
+											    'actions' => 
+											    array (
+											      0 => 
+											      array (
+											        'type' => 'postback',
+											        'label' => 'sss',
+											        'text' => 'Action 1',
+											        'data' => 'test=นุ้งบอทฝันดี',
+											      ),
+											    ),
+											    'title' => 'Title',
+											    'text' => 'Text',
+											  ),
+											);
 			replyMsg($arrayHeader,$arrayPostData);
 	    }
 

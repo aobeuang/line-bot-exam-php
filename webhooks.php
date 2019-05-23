@@ -86,7 +86,7 @@ $baseurl = "https://" . $_SERVER['SERVER_NAME'];
 										  ),
 										);
 			replyMsg($arrayHeader,$arrayPostData);
-	    }
+	    }	    
 
 	    else{
 	        $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
@@ -96,10 +96,10 @@ $baseurl = "https://" . $_SERVER['SERVER_NAME'];
 	    }
 
 	}
+	
 	#ตัวอย่าง Message Type "Location"
     if(strpos($message, 'เทส') !== false){
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
-        $arrayPostData['messages'][0]['type'] = "text";
         $arrayPostData['messages'][0] = gProfile($arrayJson['events'][0]['source']['userId']);
         replyMsg($arrayHeader,$arrayPostData);
     }

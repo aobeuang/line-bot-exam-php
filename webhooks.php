@@ -114,7 +114,7 @@ print_r(gProfile($arrayJson['events'][0]['source']['userId']));
 function gProfile($userid)
 {
 	$userss = json_decode(gUserdetail($userid));
-		$userdetail = '{
+		$userdetail = '[{
 					  "type": "flex",
 					  "altText": "Flex Message",
 					  "contents": {
@@ -151,7 +151,7 @@ function gProfile($userid)
 					        },
 					        {
 					          "type": "text",
-					          "text": "(!empty($userss->statusMessage) ? $userss->statusMessage : '')",
+					          "text": "(!empty($userss->statusMessage) ? $userss->statusMessage : '');",
 					          "align": "center",
 					          "gravity": "center",
 					          "weight": "regular"
@@ -168,7 +168,7 @@ function gProfile($userid)
 					      ]
 					    }
 					  }
-					}';
+					}]';
 
 		return json_decode($userdetail);
 }

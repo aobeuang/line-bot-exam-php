@@ -114,72 +114,63 @@ print_r(gProfile($arrayJson['events'][0]['source']['userId']));
 function gProfile($userid)
 {
 	$userss = json_decode(gUserdetail($userid));
-		$userdetail = array (
-						  'type' => 'flex',
-						  'altText' => 'Flex Message',
-						  'contents' => 
-						  array (
-						    'type' => 'bubble',
-						    'hero' => 
-						    array (
-						      'type' => 'image',
-						      'url' => $userss->pictureUrl,
-						      'size' => 'full',
-						      'aspectRatio' => '20:13',
-						      'aspectMode' => 'cover',
-						      'action' => 
-						      array (
-						        'type' => 'uri',
-						        'label' => 'Line',
-						        'uri' => $userss->pictureUrl,
-						      ),
-						    ),
-						    'footer' => 
-						    array (
-						      'type' => 'box',
-						      'layout' => 'vertical',
-						      'flex' => 0,
-						      'spacing' => 'sm',
-						      'contents' => 
-						      array (
-						        0 => 
-						        array (
-						          'type' => 'spacer',
-						          'size' => 'sm',
-						        ),
-						        1 => 
-						        array (
-						          'type' => 'text',
-						          'text' => $userss->displayName,
-						          'size' => 'xl',
-						          'align' => 'center',
-						          'gravity' => 'center',
-						          'color' => '#050505',
-						        ),
-						        2 => 
-						        array (
-						          'type' => 'text',
-						          'text' => (!empty($userss->statusMessage) ? $userss->statusMessage : '') ,
-						          'align' => 'center',
-						          'gravity' => 'center',
-						          'weight' => 'regular',
-						        ),
-						        3 => 
-						        array (
-						          'type' => 'text',
-						          'text' => '!! Welcome !!',
-						          'size' => 'xl',
-						          'align' => 'center',
-						          'gravity' => 'center',
-						          'weight' => 'bold',
-						          'color' => '#1200FF',
-						        ),
-						      ),
-						    ),
-						  ),
-						);
+		$userdetail = '{
+					  "type": "flex",
+					  "altText": "Flex Message",
+					  "contents": {
+					    "type": "bubble",
+					    "hero": {
+					      "type": "image",
+					      "url": "$userss->pictureUrl",
+					      "size": "full",
+					      "aspectRatio": "20:13",
+					      "aspectMode": "cover",
+					      "action": {
+					        "type": "uri",
+					        "label": "Line",
+					        "uri": "$userss->pictureUrl"
+					      }
+					    },
+					    "footer": {
+					      "type": "box",
+					      "layout": "vertical",
+					      "flex": 0,
+					      "spacing": "sm",
+					      "contents": [
+					        {
+					          "type": "spacer",
+					          "size": "sm"
+					        },
+					        {
+					          "type": "text",
+					          "text": "$userss->displayName",
+					          "size": "xl",
+					          "align": "center",
+					          "gravity": "center",
+					          "color": "#050505"
+					        },
+					        {
+					          "type": "text",
+					          "text": "(!empty($userss->statusMessage) ? $userss->statusMessage : '')",
+					          "align": "center",
+					          "gravity": "center",
+					          "weight": "regular"
+					        },
+					        {
+					          "type": "text",
+					          "text": "!! Welcome !!",
+					          "size": "xl",
+					          "align": "center",
+					          "gravity": "center",
+					          "weight": "bold",
+					          "color": "#1200FF"
+					        }
+					      ]
+					    }
+					  }
+					}';
 
-		return $userdetail;
+		return json_decode($userdetail);
 }
 
 

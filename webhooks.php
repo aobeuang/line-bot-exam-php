@@ -159,7 +159,7 @@ function gProfile($userid)
 						        2 => 
 						        array (
 						          'type' => 'text',
-						          'text' => ( isset($userss->statusMessage) ? $userss->statusMessage : ''),
+						          'text' => $userss->statusMessage,
 						          'align' => 'center',
 						          'gravity' => 'center',
 						          'weight' => 'regular',

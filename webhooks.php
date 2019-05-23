@@ -101,11 +101,10 @@ $baseurl = "https://" . $_SERVER['SERVER_NAME'];
     if(strpos($message, 'เทส') !== false){
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
         $arrayPostData['messages'][0] = gProfile($arrayJson['events'][0]['source']['userId']);
-        
+
         replyMsg($arrayHeader,$arrayPostData);
     }
-echo gProfile($arrayJson['events'][0]['source']['userId']);
-
+print_r(gProfile($arrayJson['events'][0]['source']['userId']));
 
 	$arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
 	        $arrayPostData['messages'][0]['type'] = "text";

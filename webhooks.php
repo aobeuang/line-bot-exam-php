@@ -123,7 +123,7 @@ function gProfile($userid)
 						    'hero' => 
 						    array (
 						      'type' => 'image',
-						      'url' => $userss['pictureUrl'],
+						      'url' => $userss->pictureUrl,
 						      'size' => 'full',
 						      'aspectRatio' => '20:13',
 						      'aspectMode' => 'cover',
@@ -131,7 +131,7 @@ function gProfile($userid)
 						      array (
 						        'type' => 'uri',
 						        'label' => 'Line',
-						        'uri' => 'https://linecorp.com/',
+						        'uri' => $userss->pictureUrl,
 						      ),
 						    ),
 						    'footer' => 
@@ -150,7 +150,7 @@ function gProfile($userid)
 						        1 => 
 						        array (
 						          'type' => 'text',
-						          'text' => 'Displayname',
+						          'text' => $userss->displayName,
 						          'size' => 'xl',
 						          'align' => 'center',
 						          'gravity' => 'center',
@@ -159,7 +159,7 @@ function gProfile($userid)
 						        2 => 
 						        array (
 						          'type' => 'text',
-						          'text' => 'Status',
+						          'text' => (!empty($userss->statusMessage)) ? $userss->statusMessage : "" ;,
 						          'align' => 'center',
 						          'gravity' => 'center',
 						          'weight' => 'regular',

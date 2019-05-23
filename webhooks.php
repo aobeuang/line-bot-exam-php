@@ -159,14 +159,6 @@ function gProfile($userid)
 						        2 => 
 						        array (
 						          'type' => 'text',
-						          'text' => $userss->statusMessage,
-						          'align' => 'center',
-						          'gravity' => 'center',
-						          'weight' => 'regular',
-						        ),
-						        3 => 
-						        array (
-						          'type' => 'text',
 						          'text' => '!! Welcome !!',
 						          'size' => 'xl',
 						          'align' => 'center',

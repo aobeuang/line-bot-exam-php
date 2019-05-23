@@ -196,7 +196,7 @@ function replyMsg($arrayHeader,$arrayPostData){
         $result = curl_exec($ch);
         curl_close ($ch);
     }
-    func1('Hello', 'world');
+    // func1('Hello', 'world');
     //echo "https://" . $_SERVER['SERVER_NAME'] ;
    exit;
 ?>
